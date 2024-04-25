@@ -1,3 +1,4 @@
+<script>
 function calculateIncomeTax() {
     // Get all the elements
     var grossIncome = document.getElementById('gross-income')
@@ -184,3 +185,27 @@ function calculateIncomeTax() {
         bracket7.textContent = '0đ'
     }
 }
+
+// Add event listeners
+document.getElementById('gross-income').addEventListener('input', calculateIncomeTax)
+document.getElementById('dependents').addEventListener('input', calculateIncomeTax)
+document.querySelectorAll('input[name="region"]').forEach((regionValue) => {
+    regionValue.addEventListener('change', calculateIncomeTax)
+})
+console.log('Xin chào! Có vẻ như bạn đang tò mò về cách hoạt động của VietGigs. Nếu bạn muốn xem mã nguồn của công cụ này, bạn có thể lấy mã nguồn tại https://github.com/VietGigsJSC/Vietnam-Tax-Caculator')
+</script>
+
+<script type="text/javascript">
+    // Format the gross income
+    document.getElementById('gross-income').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/,/g, '');
+        // Check if the value is a number
+        if (!isNaN(value) && value) {
+            // Limit the length to 12 numbers
+            value = value.length > 12 ? value.substr(0, 12) : value;
+            e.target.value = parseFloat(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        } else {
+            e.target.value = '';
+        }
+    });
+</script>
