@@ -1,5 +1,5 @@
-<script>
 function calculateIncomeTax() {
+    // Get all the elements
     var grossIncome = document.getElementById('gross-income')
     var dependents = document.getElementById('dependents')
     var totalincome = document.getElementById('total-income')
@@ -21,77 +21,85 @@ function calculateIncomeTax() {
     var bracket7 = document.getElementById('bracket7')
     let grossIncomeValue = parseFloat(grossIncome.value.replace(/,/g, ''))
     let dependentsValue = parseInt(dependents.value)
+    
+    // Check if the input is valid
     if (dependentsValue < 0) {
         window.$wireui.notify({
-        title: 'Thông báo',
-        description: 'Số lượng người phụ thuộc phải lớn hơn hoặc bằng không',
-        icon: 'info',
+            title: 'Thông báo',
+            description: 'Số lượng người phụ thuộc phải lớn hơn hoặc bằng không',
+            icon: 'info',
         })
+        
         return (dependents.value = 0)
     }
+
     if (dependentsValue > 10000) {
         window.$wireui.notify({
-        title: 'Thông báo',
-        description: 'Bạn có quá nhiều người phụ thuộc, vui lòng kiểm tra lại',
-        icon: 'info',
+            title: 'Thông báo',
+            description: 'Bạn có quá nhiều người phụ thuộc, vui lòng kiểm tra lại',
+            icon: 'info',
         })
+        
         return (dependents.value = 10000)
     }
+
     if (grossIncomeValue < 0) {
         window.$wireui.notify({
-        title: 'Thông báo',
-        description: 'Thu nhập phải lớn hơn hoặc bằng không',
-        icon: 'info',
+            title: 'Thông báo',
+            description: 'Thu nhập phải lớn hơn hoặc bằng không',
+            icon: 'info',
         })
+    
         return (grossIncome.value = 0)
     }
+
     if (grossIncomeValue > 200000000000) {
         window.$wireui.notify({
-        title: 'Thông báo',
-        description:
-            'Thu nhập của bạn thật khủng, hãy cân nhắc mua cổ phần VietGigs!',
-        icon: 'info',
+            title: 'Thông báo',
+            description: 'Thu nhập của bạn thật khủng, hãy cân nhắc mua cổ phần VietGigs!',
+            icon: 'info',
         })
         return (grossIncome.value = 200000000000)
     }
+
     if (isNaN(dependentsValue)) {
         dependentsValue = 0
         dependentsDeduct = 0
     } else {
         dependentsDeduct = dependentsValue * 4400000
     }
+    // Calculate the income tax
     if (!isNaN(grossIncomeValue) && !isNaN(dependentsValue)) {
         let socialInsuranceValue = Math.round(grossIncomeValue * 0.08)
         let healthInsuranceValue = Math.round(grossIncomeValue * 0.015)
         let unemployedInsuranceValue = Math.round(grossIncomeValue * 0.01)
         if (socialInsuranceValue > 2880000) {
-        socialInsuranceValue = 2880000
+            socialInsuranceValue = 2880000
         }
         if (healthInsuranceValue > 540000) {
-        healthInsuranceValue = 540000
+            healthInsuranceValue = 540000
         }
+
+        // Check the region
         if (unemployedInsuranceValue > 936000 && region == 1) {
-        unemployedInsuranceValue = 936000
-        } else {
-        if (unemployedInsuranceValue > 832000 && region == 2) {
-            unemployedInsuranceValue = 832000
-        } else {
-            if (unemployedInsuranceValue > 728000 && region == 3) {
-            unemployedInsuranceValue = 728000
-            } else {
-            if (unemployedInsuranceValue > 650000 && region == 4) {
-                unemployedInsuranceValue = 650000
-            }
-            }
+            unemployedInsuranceValue = 936000;
+        } else if (unemployedInsuranceValue > 832000 && region == 2) {
+            unemployedInsuranceValue = 832000;
+        } else if (unemployedInsuranceValue > 728000 && region == 3) {
+            unemployedInsuranceValue = 728000;
+        } else if (unemployedInsuranceValue > 650000 && region == 4) {
+            unemployedInsuranceValue = 650000;
         }
-        }
+
         let beforeTaxIncomeValue = Math.round(grossIncomeValue - socialInsuranceValue - healthInsuranceValue - unemployedInsuranceValue)
         let afterIncomeTax = Math.round(beforeTaxIncomeValue - 11000000 - dependentsDeduct)
         let afterIncomeTaxValue
+        
+        // Check if the value is negative
         if (afterIncomeTax <= 0) {
-        afterIncomeTaxValue = 0
+            afterIncomeTaxValue = 0
         } else {
-        afterIncomeTaxValue = afterIncomeTax
+            afterIncomeTaxValue = afterIncomeTax
         }
         let bracket1Value = 0
         let bracket2Value = 0
@@ -100,41 +108,45 @@ function calculateIncomeTax() {
         let bracket5Value = 0
         let bracket6Value = 0
         let bracket7Value = 0
+
+        // Calculate the tax brackets
         if (afterIncomeTax > 80000000) {
-        bracket7Value = Math.round((afterIncomeTax - 80000000) * 0.35)
-        afterIncomeTax = 80000000
+            bracket7Value = Math.round((afterIncomeTax - 80000000) * 0.35)
+            afterIncomeTax = 80000000
         }
+
         if (afterIncomeTax > 52000000) {
-        bracket6Value = Math.round((afterIncomeTax - 52000000) * 0.3)
-        afterIncomeTax = 52000000
+            bracket6Value = Math.round((afterIncomeTax - 52000000) * 0.3)
+            afterIncomeTax = 52000000
         }
+        
         if (afterIncomeTax > 32000000) {
-        bracket5Value = Math.round((afterIncomeTax - 32000000) * 0.25)
-        afterIncomeTax = 32000000
+            bracket5Value = Math.round((afterIncomeTax - 32000000) * 0.25)
+            afterIncomeTax = 32000000
         }
+        
         if (afterIncomeTax > 18000000) {
-        bracket4Value = Math.round((afterIncomeTax - 18000000) * 0.2)
-        afterIncomeTax = 18000000
+            bracket4Value = Math.round((afterIncomeTax - 18000000) * 0.2)
+            afterIncomeTax = 18000000
         }
+        
         if (afterIncomeTax > 10000000) {
-        bracket3Value = Math.round((afterIncomeTax - 10000000) * 0.15)
-        afterIncomeTax = 10000000
+            bracket3Value = Math.round((afterIncomeTax - 10000000) * 0.15)
+            afterIncomeTax = 10000000
         }
+        
         if (afterIncomeTax > 5000000) {
-        bracket2Value = Math.round((afterIncomeTax - 5000000) * 0.1)
-        afterIncomeTax = 5000000
+            bracket2Value = Math.round((afterIncomeTax - 5000000) * 0.1)
+            afterIncomeTax = 5000000
         }
+        
         if (afterIncomeTax > 0) {
-        bracket1Value = Math.round(afterIncomeTax * 0.05)
+            bracket1Value = Math.round(afterIncomeTax * 0.05)
         }
-        let personalTaxValue =
-        bracket1Value +
-        bracket2Value +
-        bracket3Value +
-        bracket4Value +
-        bracket5Value +
-        bracket6Value +
-        bracket7Value
+        
+        let personalTaxValue = bracket1Value + bracket2Value + bracket3Value + bracket4Value + bracket5Value + bracket6Value + bracket7Value
+
+        // Display the values
         totalincome.textContent = grossIncomeValue.toLocaleString('en-US') + 'đ'
         afterIncomeTax.textContent = afterIncomeTaxValue.toLocaleString('en-US') + 'đ'
         socialInsurance.textContent = socialInsuranceValue.toLocaleString('en-US') + 'đ'
@@ -151,7 +163,9 @@ function calculateIncomeTax() {
         bracket5.textContent = bracket5Value.toLocaleString('en-US') + 'đ'
         bracket6.textContent = bracket6Value.toLocaleString('en-US') + 'đ'
         bracket7.textContent = bracket7Value.toLocaleString('en-US') + 'đ'
+
     } else {
+        
         totalincome.textContent = '0đ'
         afterIncomeTax.textContent = '0đ'
         socialInsurance.textContent = '0đ'
@@ -169,24 +183,4 @@ function calculateIncomeTax() {
         bracket6.textContent = '0đ'
         bracket7.textContent = '0đ'
     }
-    }
-    document.getElementById('gross-income').addEventListener('input', calculateIncomeTax)
-    document.getElementById('dependents').addEventListener('input', calculateIncomeTax)
-    document.querySelectorAll('input[name="region"]').forEach((regionValue) => {
-        regionValue.addEventListener('change', calculateIncomeTax)
-    })
-    console.log('Xin chào! Có vẻ như bạn đang tò mò về cách hoạt động của VietGigs. Nếu bạn muốn xem mã nguồn của công cụ này, bạn có thể lấy mã nguồn tại https://github.com/VietGigsJSC/Vietnam-Tax-Caculator')
-</script>
-<script type="text/javascript">
-    document.getElementById('gross-income').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/,/g, '');
-        // Check if the value is a number
-        if (!isNaN(value) && value) {
-            // Limit the length to 12 numbers
-            value = value.length > 12 ? value.substr(0, 12) : value;
-            e.target.value = parseFloat(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        } else {
-            e.target.value = '';
-        }
-    });
-</script>
+}
