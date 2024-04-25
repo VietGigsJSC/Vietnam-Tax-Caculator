@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<div class="relative py-16 bg-white dark:bg-zinc-800 overflow-hidden rounded-md shadow-sm border border-gray-100 dark:border-zinc-700">
+        <div class="relative px-1 sm:px-6">
+            <div class="text-lg mx-auto">
+              <script src="taxCaculator.js"></script>
+                <h1 class="block text-xl text-center leading-8 font-extrabold tracking-wide text-gray-900 dark:text-gray-100 sm:text-3xl mb-2">Công cụ tính thuế thu nhập cá nhân (Cập nhật 2024)</h1>
+
+                
+                <span class="block text-xs text-center text-gray-400 dark:text-gray-300 font-normal tracking-widest">Cập nhật lần cuối vào 1 tuần trước</span>
+            </div>
+
+            
+            <div class="mt-16 dark:text-gray-200 quill-container break-words text-sm md:text-base leading-8 md:px-12 px-2">
+                <div class="flex items-center container font-medium rounded-2xl border bg-white px-2 py-8 shadow dark:border-transparent dark:bg-zinc-900 sm:px-12 sm:py-8">
+                    <svg class="h-10 w-16 text-gray-900 dark:text-gray-200 sm:flex" stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"></path>
+                    </svg>
+                    <div class="ml-4">
+                        <p class="mt-2 text-sm sm:text-md text-gray-900 dark:text-gray-200 sm:flex">Áp dụng mức giảm trừ gia cảnh 11 triệu đồng/tháng (132 triệu đồng/năm) với người nộp thuế và 4,4 triệu đồng/tháng với mỗi người phụ thuộc (Nghị quyết số 954/2020/UBTVQH14)</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <div class="container rounded-2xl border bg-white px-2 py-8 shadow dark:border-transparent dark:bg-zinc-900 sm:px-12 sm:py-8">
+                        <h2 class="text-center text-sm font-bold dark:text-gray-100 sm:text-xl md:text-2xl">Giảm trừ gia cảnh bản thân</h2>
+                        <p class="mt-2 justify-center text-center text-sm text-gray-900 dark:text-gray-200 sm:flex">11,000,000đ</p>
+                    </div>
+
+                    
+                    <div class="container rounded-2xl border bg-white px-2 py-8 shadow dark:border-transparent dark:bg-zinc-900 sm:px-12 sm:py-8">
+                        <h2 class="text-center text-sm font-bold dark:text-gray-100 sm:text-xl md:text-2xl">Người phụ thuộc</h2>
+                        <p class="mt-2 justify-center text-center text-sm text-gray-900 dark:text-gray-200 sm:flex">4,400,000đ/người</p>
+                    </div>
+                </div>
+
+                
+                <div class="mt-16 rounded-2xl border bg-white px-2 py-8 shadow dark:border-transparent dark:bg-zinc-900 sm:px-12 sm:py-8">
+
+                    <h2 class="text-center text-sm font-bold dark:text-gray-100 sm:text-xl md:text-2xl">Chọn vùng</h2>
+                    <div class="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-10">
+                        <div class="flex justify-center items-center">
+                            <input type="radio" id="region1" value="1" name="region" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-700 dark:border-gray-600" checked="">
+                            <button for="region1" data-popover-target="popover-region1" data-popover-placement="bottom" class="pl-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Vùng I</button>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <input type="radio" id="region2" name="region" value="2" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-700 dark:border-gray-600">
+                            <button for="region2" data-popover-target="popover-region2" data-popover-placement="bottom" class="pl-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Vùng II</button>
+
+                            
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <input type="radio" id="region3" name="region" value="3" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-700 dark:border-gray-600">
+                            <button for="region3" data-popover-target="popover-region3" data-popover-placement="bottom" class="pl-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Vùng III</button>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <input type="radio" id="region4" name="region" value="4" class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-700 dark:border-gray-600">
+                            <button for="region4" data-popover-target="popover-region4" data-popover-placement="bottom" class="pl-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Vùng IV</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 grid grid-cols-1 mb-16 sm:grid-cols-2 gap-10">
+
+                    
+                    <div class="container rounded-2xl border bg-white px-2 py-8 shadow dark:border-transparent dark:bg-zinc-900 sm:px-12 sm:py-8">
+                        <h2 class="text-center text-sm font-bold dark:text-gray-100 sm:text-xl md:text-2xl">Thu nhập tháng</h2>
+                        <div class="mt-2 relative flex items-center">
+                            <span class="absolute ltr:left-0 ltr:ml-2 w-8 h-8 inline-flex justify-center items-center focus:outline-none flex-none rounded-full focus:ring-0 text-whiate disabled:bg-gray-300 disabled:hover:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed">
+                                <svg class="w-4 h-4" stroke="currentColor" fill="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <input type="text" maxlength="20" id="gross-income" placeholder="VD: 20,000,000" class="focus:!ring-1 block w-full text-right pr-14 py-3.5 placeholder:font-normal placeholder:text-[13px] dark:placeholder-zinc-300 text-sm font-medium text-zinc-800 dark:text-white rounded-md dark:bg-transparent focus:!ring-primary-600 focus:!border-primary-600 border-gray-300 dark:border-zinc-500">
+                            <span class="absolute ltr:right-0 ltr:mr-4 inline-flex justify-center items-center focus:outline-none flex-none rounded-full focus:ring-0 text-zinc-800 dark:text-white disabled:bg-gray-300 disabled:hover:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed">VND</span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="container rounded-2xl border bg-white px-2 py-8 shadow dark:border-transparent dark:bg-zinc-900 sm:px-12 sm:py-8">
+                        <h2 class="text-center text-sm font-bold dark:text-gray-100 sm:text-xl md:text-2xl">Số người phụ thuộc</h2>
+                        <div class="mt-2 relative flex items-center">
+                            <span class="absolute ltr:left-0 ltr:ml-2 w-8 h-8 inline-flex justify-center items-center focus:outline-none flex-none rounded-full focus:ring-0 text-whiate disabled:bg-gray-300 disabled:hover:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed">
+                                <svg class="w-4 h-4" stroke="currentColor" fill="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <input type="number" value="0" maxlength="20" id="dependents" placeholder="VD: 2" class="focus:!ring-1 block w-full text-right pr-14 py-3.5 placeholder:font-normal placeholder:text-[13px] dark:placeholder-zinc-300 text-sm font-medium text-zinc-800 dark:text-white rounded-md dark:bg-transparent focus:!ring-primary-600 focus:!border-primary-600 border-gray-300 dark:border-zinc-500">
+                            <span class="absolute ltr:right-0 ltr:mr-4 inline-flex justify-center text-sm items-center focus:outline-none flex-none rounded-full focus:ring-0 text-zinc-800 dark:text-white disabled:bg-gray-300 disabled:hover:bg-gray-300 text-xs disabled:text-gray-500 disabled:cursor-not-allowed">Người</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-center uppercase text-sm mb-2 font-bold dark:text-gray-100 sm:text-xl md:text-2xl">Bảng thuế thu nhập cá nhân</h2>
+                <div class="container rounded-2xl border shadow dark:border-transparent relative overflow-x-auto">
+                    <table class="w-full text-sm text-zinc-800 dark:text-white">
+                        <tbody>
+                            <tr class="bg-gray-200 border-b dark:bg-zinc-900 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Tổng thu nhập tháng:
+                                </th>
+                                <td id="total-income" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-zinc-700 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Bảo hiểm xã hội (8%):
+                                </th>
+                                <td id="social-insurance" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-zinc-700 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Bảo hiểm y tế (1.5%):
+                                </th>
+                                <td id="health-insurance" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-zinc-700 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Bảo hiểm thất nghiệp (1%):
+                                </th>
+                                <td id="unemployed-insurance" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-200 border-b dark:bg-zinc-900 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Thu nhập trước thuế:
+                                </th>
+                                <td id="before-tax-income" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-zinc-700 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Giảm trừ gia cảnh:
+                                </th>
+                                <td id="self-deduct" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-zinc-700 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Giảm trừ người phụ thuộc:
+                                </th>
+                                <td id="dependents-deduct" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-200 border-b dark:bg-zinc-900 border-gray-400 dark:border-zinc-600">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Thu nhập chịu thuế:
+                                </th>
+                                <td id="after-income-tax" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-200 dark:bg-zinc-900 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Thuế thu nhập cá nhân:
+                                </th>
+                                <td id="personal-tax" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-center uppercase mb-2 mt-16 text-sm font-bold dark:text-gray-100 sm:text-xl md:text-2xl">Bảng chi tiết thuế thu nhập cá nhân</h2>
+                <div class="container rounded-2xl border shadow dark:border-transparent relative overflow-x-auto">
+                    <table class="w-full text-sm text-zinc-800 dark:text-white">
+                        <tbody>
+                            <tr class="bg-gray-200 border-b dark:bg-zinc-900 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Dưới 5 triệu (thuế suất 5%):
+                                </th>
+                                <td id="bracket1" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-zinc-700 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Từ 5 triệu đến 10 triệu (thuế suất 10%):
+                                </th>
+                                <td id="bracket2" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-200 border-b dark:bg-zinc-900 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Từ 10 triệu đến 18 triệu (thuế suất 15%):
+                                </th>
+                                <td id="bracket3" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-zinc-700 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Từ 18 triệu đến 32 triệu (thuế suất 20%):
+                                </th>
+                                <td id="bracket4" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-200 border-b dark:bg-zinc-900 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Từ 32 triệu đến 52 triệu (thuế suất 25%):
+                                </th>
+                                <td id="bracket5" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-zinc-700 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Từ 52 triệu đến 80 triệu (thuế suất 30%):
+                                </th>
+                                <td id="bracket6" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-200 border-b dark:bg-zinc-900 dark:border-zinc-800">
+                                <th scope="row" class="w-1/2 text-left pl-4 py-4 font-medium text-zinc-800 dark:text-white">
+                                    Trên 80 triệu (thuế suất 35%):
+                                </th>
+                                <td id="bracket7" class="w-1/2 text-right pr-4 font-bold text-lg text-primary-600 py-4">
+                                    0đ
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
