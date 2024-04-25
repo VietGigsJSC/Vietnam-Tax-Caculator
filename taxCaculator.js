@@ -3,8 +3,8 @@ function calculateIncomeTax() {
     // Get all the elements
     var grossIncome = document.getElementById('gross-income')
     var dependents = document.getElementById('dependents')
-    var totalincome = document.getElementById('total-income')
-    var afterIncomeTax = document.getElementById('after-income-tax')
+    var totalIncome = document.getElementById('total-income')
+    var afterIncome = document.getElementById('after-income-tax')
     var socialInsurance = document.getElementById('social-insurance')
     var healthInsurance = document.getElementById('health-insurance')
     var unemployedInsurance = document.getElementById('unemployed-insurance')
@@ -135,21 +135,19 @@ function calculateIncomeTax() {
             bracket3Value = Math.round((afterIncomeTax - 10000000) * 0.15)
             afterIncomeTax = 10000000
         }
-        
         if (afterIncomeTax > 5000000) {
             bracket2Value = Math.round((afterIncomeTax - 5000000) * 0.1)
             afterIncomeTax = 5000000
         }
-        
         if (afterIncomeTax > 0) {
             bracket1Value = Math.round(afterIncomeTax * 0.05)
         }
-        
         let personalTaxValue = bracket1Value + bracket2Value + bracket3Value + bracket4Value + bracket5Value + bracket6Value + bracket7Value
 
         // Display the values
-        totalincome.textContent = grossIncomeValue.toLocaleString('en-US') + 'đ'
-        afterIncomeTax.textContent = afterIncomeTaxValue.toLocaleString('en-US') + 'đ'
+        console.log(afterIncomeTaxValue)
+        totalIncome.textContent = grossIncomeValue.toLocaleString('en-US') + 'đ'
+        afterIncome.textContent = afterIncomeTaxValue.toLocaleString('en-US') + 'đ'
         socialInsurance.textContent = socialInsuranceValue.toLocaleString('en-US') + 'đ'
         healthInsurance.textContent = healthInsuranceValue.toLocaleString('en-US') + 'đ'
         unemployedInsurance.textContent = unemployedInsuranceValue.toLocaleString('en-US') + 'đ'
@@ -167,8 +165,8 @@ function calculateIncomeTax() {
 
     } else {
         
-        totalincome.textContent = '0đ'
-        afterIncomeTax.textContent = '0đ'
+        totalIncome.textContent = '0đ'
+        afterIncome.textContent = '0đ'
         socialInsurance.textContent = '0đ'
         healthInsurance.textContent = '0đ'
         unemployedInsurance.textContent = '0đ'
@@ -194,9 +192,7 @@ document.querySelectorAll('input[name="region"]').forEach((regionValue) => {
 })
 console.log('Xin chào! Có vẻ như bạn đang tò mò về cách hoạt động của VietGigs. Nếu bạn muốn xem mã nguồn của công cụ này, bạn có thể lấy mã nguồn tại https://github.com/VietGigsJSC/Vietnam-Tax-Caculator')
 </script>
-
 <script type="text/javascript">
-    // Format the gross income
     document.getElementById('gross-income').addEventListener('input', function(e) {
         let value = e.target.value.replace(/,/g, '');
         // Check if the value is a number
