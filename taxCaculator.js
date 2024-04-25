@@ -145,7 +145,6 @@ function calculateIncomeTax() {
         let personalTaxValue = bracket1Value + bracket2Value + bracket3Value + bracket4Value + bracket5Value + bracket6Value + bracket7Value
 
         // Display the values
-        console.log(afterIncomeTaxValue)
         totalIncome.textContent = grossIncomeValue.toLocaleString('en-US') + 'đ'
         afterIncome.textContent = afterIncomeTaxValue.toLocaleString('en-US') + 'đ'
         socialInsurance.textContent = socialInsuranceValue.toLocaleString('en-US') + 'đ'
