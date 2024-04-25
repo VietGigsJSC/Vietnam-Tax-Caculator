@@ -1,4 +1,4 @@
-# Công cụ tính thuế thu nhập cá nhân năm by VietGigs (2024)
+# Công cụ tính thuế thu nhập cá nhân by VietGigs (2024)
 
 ## Mục lục
 
