@@ -1,12 +1,11 @@
-# Công cụ tính thuế thu nhập cá nhân năm 2024 cho người Việt Nam bởi VietGigs
+# Công cụ tính thuế thu nhập cá nhân năm by VietGigs (2024)
 
 ## Mục lục
 
 1. Giới thiệu
-2. Cài đặt
-3. Sử dụng
-4. Hỗ trợ và liên hệ
-5. Thông tin pháp lý
+2. Sử dụng
+3. Hỗ trợ và liên hệ
+4. Thông tin pháp lý
 
 ## 1. Giới thiệu
 
