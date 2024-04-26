@@ -183,13 +183,13 @@ function calculateIncomeTax() {
     }
 }
 
-// Add event listeners
-document.getElementById('gross-income').addEventListener('input', calculateIncomeTax)
-document.getElementById('dependents').addEventListener('input', calculateIncomeTax)
-document.querySelectorAll('input[name="region"]').forEach((regionValue) => {
-    regionValue.addEventListener('change', calculateIncomeTax)
-})
-console.log('Xin chào! Có vẻ như bạn đang tò mò về cách hoạt động của VietGigs. Nếu bạn muốn xem mã nguồn của công cụ này, bạn có thể lấy mã nguồn tại https://github.com/VietGigsJSC/Vietnam-Tax-Caculator')
+    // Add event listeners
+    document.getElementById('gross-income').addEventListener('input', calculateIncomeTax)
+    document.getElementById('dependents').addEventListener('input', calculateIncomeTax)
+    document.querySelectorAll('input[name="region"]').forEach((regionValue) => {
+        regionValue.addEventListener('change', calculateIncomeTax)
+    })
+    console.log('Xin chào! Có vẻ như bạn đang tò mò về cách hoạt động của VietGigs. Nếu bạn muốn xem mã nguồn của công cụ này, bạn có thể lấy mã nguồn tại https://github.com/VietGigsJSC/Vietnam-Tax-Caculator')
 </script>
 <script type="text/javascript">
     document.getElementById('gross-income').addEventListener('input', function(e) {
