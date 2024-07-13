@@ -27,7 +27,7 @@ function calculateIncomeTax() {
     if (dependentsValue < 0) {
         window.$wireui.notify({
             title: 'Thông báo',
-            description: 'Số lượng người phụ thuộc phải lớn hơn hoặc bằng không',
+            description: 'Số lượng người phụ thuộc phải lớn hơn hoặc bằng không, kiểm tra lại hoặc tìm thêm người phụ thuộc!',
             icon: 'info',
         })
         
@@ -37,7 +37,7 @@ function calculateIncomeTax() {
     if (dependentsValue > 10000) {
         window.$wireui.notify({
             title: 'Thông báo',
-            description: 'Bạn có quá nhiều người phụ thuộc, vui lòng kiểm tra lại',
+            description: 'Có quá nhiều người phụ thuộc vào bạn, hãy đăng ký cho họ làm Freelancer trên VietGigs!',
             icon: 'info',
         })
         
@@ -47,7 +47,7 @@ function calculateIncomeTax() {
     if (grossIncomeValue < 0) {
         window.$wireui.notify({
             title: 'Thông báo',
-            description: 'Thu nhập phải lớn hơn hoặc bằng không',
+            description: 'Thu nhập phải lớn hơn hoặc bằng không, nếu không bạn sẽ phải trả nợ cho ngân hàng!',
             icon: 'info',
         })
     
@@ -57,7 +57,7 @@ function calculateIncomeTax() {
     if (grossIncomeValue > 200000000000) {
         window.$wireui.notify({
             title: 'Thông báo',
-            description: 'Thu nhập của bạn thật khủng, hãy cân nhắc mua cổ phần VietGigs!',
+            description: 'Thu nhập của bạn thật khủng, hãy cân nhắc đầu tư vào VietGigs!',
             icon: 'info',
         })
         return (grossIncome.value = 200000000000)
@@ -65,9 +65,9 @@ function calculateIncomeTax() {
 
     if (isNaN(dependentsValue)) {
         dependentsValue = 0
-        dependentsDeduct = 0
+        dependentsDeductValue = 0
     } else {
-        dependentsDeduct = dependentsValue * 4400000
+        dependentsDeductValue = dependentsValue * 4400000
     }
     // Calculate the income tax
     if (!isNaN(grossIncomeValue) && !isNaN(dependentsValue)) {
@@ -93,7 +93,7 @@ function calculateIncomeTax() {
         }
 
         let beforeTaxIncomeValue = Math.round(grossIncomeValue - socialInsuranceValue - healthInsuranceValue - unemployedInsuranceValue)
-        let afterIncomeTax = Math.round(beforeTaxIncomeValue - 11000000 - dependentsDeduct)
+        let afterIncomeTax = Math.round(beforeTaxIncomeValue - 11000000 - dependentsDeductValue)
         let afterIncomeTaxValue
         
         // Check if the value is negative
@@ -152,7 +152,7 @@ function calculateIncomeTax() {
         unemployedInsurance.textContent = unemployedInsuranceValue.toLocaleString('en-US') + 'đ'
         beforeTaxIncome.textContent = beforeTaxIncomeValue.toLocaleString('en-US') + 'đ'
         selfDeduct.textContent = (11000000).toLocaleString('en-US') + 'đ'
-        dependentsDeduct.textContent = dependentsDeduct.toLocaleString('en-US') + 'đ'
+        dependentsDeduct.textContent = dependentsDeductValue.toLocaleString('en-US') + 'đ'
         personalTax.textContent = personalTaxValue.toLocaleString('en-US') + 'đ'
         bracket1.textContent = bracket1Value.toLocaleString('en-US') + 'đ'
         bracket2.textContent = bracket2Value.toLocaleString('en-US') + 'đ'
