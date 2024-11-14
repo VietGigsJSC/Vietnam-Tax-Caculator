@@ -21,7 +21,7 @@ Công cụ tính thuế thu nhập cá nhân năm 2024 cho người Việt Nam l
 
 ## 3. Hỗ trợ và liên hệ
 
-Nếu bạn gặp vấn đề hoặc cần hỗ trợ, vui lòng liên hệ với chúng tôi qua email: support@vietgigs.com, qua số điện thoại: 0912918976 hoặc website: https://vietgigs.vn.
+Nếu bạn gặp vấn đề hoặc cần hỗ trợ, vui lòng liên hệ với chúng tôi qua email: support@vietgigs.vn, qua số điện thoại: 0912918976 hoặc website: https://vietgigs.vn.
 
 ## 4. Thông tin pháp lý
 
